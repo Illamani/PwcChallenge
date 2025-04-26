@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RentalCar.Models
+namespace RentalCar.Domain.Entities
 {
 	public class Service
 	{

@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RentalCar.Models\RentalCar.Models.csproj" />
+    <ProjectReference Include="..\RentalCar.Models\RentalCar.Domain.csproj" />
   </ItemGroup>
 
 </Project>

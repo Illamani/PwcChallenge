@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RentalCar.Domain.Entities;
 
 namespace RentalCar.Models
 {
