@@ -3,14 +3,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RentalCar.Models
 {
-	public class Customer
+	public class Car
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
-		public string FullName { get; set; }
+		public int ServiceId { get; set; }
 
-		public string Address { get; set; }
+		[ForeignKey("ServiceId")]
+		public ICollection<Service> Services { get; set; }
+
+		public string Type { get; set; }
+
+		public string Model { get; set; }
 	}
 }
