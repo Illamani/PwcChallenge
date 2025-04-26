@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RentalCar.Models\RentalCar.Domain.csproj" />
+    <ProjectReference Include="..\RentalCar.Persistence\RentalCar.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

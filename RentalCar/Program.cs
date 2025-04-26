@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using RentalCar.Models;
+using RentalCar.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RentalCar.Domain.Entities;
 
-namespace RentalCar.Models
+namespace RentalCar.Persistence.Context
 {
 	public class RentalContext : DbContext
 	{
