@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/PwcChallenge/v17
+/.vs
+/RentalCar/.vs/RentalCar
+/RentalCar/obj
+/RentalCar/bin/Debug/net8.0
