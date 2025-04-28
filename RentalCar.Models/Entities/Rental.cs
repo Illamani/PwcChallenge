@@ -1,14 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using RentalCar.Domain.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RentalCar.Domain.Entities
 {
-	public class Rental
+	public class Rental : BaseEntity
 	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
-
 		public int CustomerId { get; set; }
 
 		[ForeignKey("CustomerId")]

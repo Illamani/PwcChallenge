@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using RentalCar.Application.Repository.ModelRepository;
+using RentalCar.Application.Service;
 using RentalCar.Persistence.Context;
+using RentalCar.Persistence.Repository.ModelRepository;
+using RentalCar.Persistence.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +15,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<RentalContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RentalConnection")));
+builder.Services.AddScoped<ICarRepository, CarRepository>();
+builder.Services.AddScoped<ICarService, CarService>();
 
 var app = builder.Build();
-
 
 //Permite la migracion al iniciar el proyecto
 using (var scope = app.Services.CreateScope())

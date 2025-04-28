@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentalCar.Persistence.Context;
 
@@ -11,9 +12,11 @@ using RentalCar.Persistence.Context;
 namespace RentalCar.Models.Migrations
 {
     [DbContext(typeof(RentalContext))]
-    partial class RentalContextModelSnapshot : ModelSnapshot
+    [Migration("20250428123739_Migracion")]
+    partial class Migracion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,7 +108,7 @@ namespace RentalCar.Models.Migrations
                     b.ToTable("Rental", (string)null);
                 });
 
-            modelBuilder.Entity("RentalCar.Domain.Entities.RentalService", b =>
+            modelBuilder.Entity("RentalCar.Domain.Entities.Service", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -148,7 +151,7 @@ namespace RentalCar.Models.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("RentalCar.Domain.Entities.RentalService", b =>
+            modelBuilder.Entity("RentalCar.Domain.Entities.Service", b =>
                 {
                     b.HasOne("RentalCar.Domain.Entities.Car", null)
                         .WithMany("Services")

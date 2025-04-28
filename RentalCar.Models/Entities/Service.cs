@@ -1,13 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using RentalCar.Domain.Common;
 
 namespace RentalCar.Domain.Entities
 {
-	public class Service
+	public class RentalService : BaseEntity
 	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
 		public DateTime Date { get; set; }
 	}
 }
