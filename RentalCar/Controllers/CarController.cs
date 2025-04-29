@@ -1,53 +1,52 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RentalCar.Application.Service;
+using RentalCar.Domain;
+using RentalCar.Domain.Dto;
 using RentalCar.Domain.Entities;
 
 namespace RentalCar.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarController : ControllerBase
+    public class CarController(ICarService carService) : ControllerBase
     {
-        private readonly ICarService _carService;
-
-        public CarController(ICarService carService)
-        {
-            _carService = carService;
-        }
+        private readonly CarMapper _mapper = new();
 
         [HttpPost]
         [Route("CreateCar")]
         public void CreateCar(Car car)
         {
-            _carService.Create(car);
+            carService.Create(car);
         }
 
         [HttpGet]
         [Route("GetAllCar")]
-        public async Task<List<Car>> GetCarsAsync(CancellationToken cancellationToken)
+        public async Task<List<CarDto>> GetCarsAsync(CancellationToken cancellationToken)
         {
-            return await _carService.GetAll(cancellationToken);
+            var cars = await carService.GetAll(cancellationToken);
+            return _mapper.CarsToCarsDto(cars);
         }
 
         [HttpGet]
         [Route("GetCar")]
-        public async Task<Car> GetCarAsync(int id, CancellationToken cancellationToken)
+        public async Task<CarDto> GetCarAsync(int id, CancellationToken cancellationToken)
         {
-            return await _carService.Get(id, cancellationToken);
+            var car = await carService.Get(id, cancellationToken);
+            return _mapper.CarToCarDto(car);
         }
 
         [HttpDelete]
         [Route("DeleteCar")]
         public void DeleteCar(Car car)
         {
-            _carService.Delete(car);
+            carService.Delete(car);
         }
 
         [HttpPut]
         [Route("UpdateCar")]
         public void UpdateCar(Car car)
         {
-            _carService.Update(car);
+            carService.Update(car);
         }
     }
 }

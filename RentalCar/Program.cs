@@ -1,9 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using RentalCar.Application.Repository.ModelRepository;
-using RentalCar.Application.Service;
+using RentalCar.Persistence;
 using RentalCar.Persistence.Context;
-using RentalCar.Persistence.Repository.ModelRepository;
-using RentalCar.Persistence.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,9 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<RentalContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RentalConnection")));
-builder.Services.AddScoped<ICarRepository, CarRepository>();
-builder.Services.AddScoped<ICarService, CarService>();
+builder.Services.ConfigurePersistence(builder.Configuration);
 
 var app = builder.Build();
 
