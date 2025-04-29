@@ -8,7 +8,7 @@ namespace RentalCar.Domain.Entities
 		public int ServiceId { get; set; }
 
 		[ForeignKey("ServiceId")]
-		public ICollection<RentalService> Services { get; set; }
+		public ICollection<ServiceModel> Services { get; set; }
 
 		public string Type { get; set; }
 

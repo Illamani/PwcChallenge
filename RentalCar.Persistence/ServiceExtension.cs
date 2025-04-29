@@ -17,6 +17,12 @@ namespace RentalCar.Persistence
 			services.AddDbContext<RentalContext>(options => options.UseSqlServer(connection));
 			services.AddScoped<ICarRepository, CarRepository>();
 			services.AddScoped<ICarService, CarService>();
+			services.AddScoped<IRentalRepository, RentalRepository>();
+			services.AddScoped<IRentalService, RentalService>();
+			services.AddScoped<IServiceModelRepository, ServiceModelRepository>();
+			services.AddScoped<IServiceModelService, ServiceModelService>();
+			services.AddScoped<ICustomerRepository, CustomerRepository>();
+			services.AddScoped<ICustomerService, CustomerService>();
 		}
 	}
 }

@@ -4,7 +4,7 @@ using RentalCar.Persistence.Context;
 
 namespace RentalCar.Persistence.Repository.ModelRepository
 {
-	public class CarRepository(RentalContext context) : BaseRepository<Car>(context), ICarRepository
+	public class CustomerRepository(RentalContext context) : BaseRepository<Customer>(context), ICustomerRepository
 	{
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace RentalCar.Domain.Entities
 {
-	public class RentalService : BaseEntity
+	public class ServiceModel : BaseEntity
 	{
 		public DateTime Date { get; set; }
 	}

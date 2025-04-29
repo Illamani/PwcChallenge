@@ -14,14 +14,14 @@ namespace RentalCar.Persistence.Context
 
 		public DbSet<Rental> Rentals { get; set; }
 
-		public DbSet<RentalService> Services { get; set; }
+		public DbSet<ServiceModel> Services { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Car>().ToTable("Car");
 			modelBuilder.Entity<Customer>().ToTable("Customer");
 			modelBuilder.Entity<Rental>().ToTable("Rental");
-			modelBuilder.Entity<RentalService>().ToTable("Service");
+			modelBuilder.Entity<ServiceModel>().ToTable("Service");
 		}
 	}
 }
